@@ -1,19 +1,23 @@
 import logging
 import os
 
-from discord.ext import commands
+import hikari
 from dotenv import load_dotenv
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO)
 
 
-bot = commands.Bot(command_prefix="!")
+bot = hikari.GatewayBot(token=os.environ["DISCORD_BOT_TOKEN"])
 
 
-@bot.command()
-async def ping(ctx):
-    await ctx.send("pong")
+@bot.listen()
+async def ping(event: hikari.GuildMessageCreateEvent) -> None:
+    if event.is_bot or not event.content:
+        return
+
+    if event.content.startswith("!ping"):
+        await event.message.respond("pong!")
 
 
-bot.run(os.environ["DISCORD_BOT_TOKEN"])
+bot.run()

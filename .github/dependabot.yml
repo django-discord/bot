@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    assignees:
+      - "knyghty"
+    directory: "/"
+    reviewers:
+      - "knyghty"
+    schedule:
+      day: "monday"
+      interval: "weekly"
+      time: "09:00"
+      timezone: "Europe/Amsterdam"
+  - package-ecosystem: "pip"
+    allow:
+      - dependency-type: all
+    assignees:
+      - "knyghty"
+    directory: "/"
+    reviewers:
+      - "knyghty"
+    schedule:
+      interval: "daily"
+      time: "09:00"
+      timezone: "Europe/Amsterdam"
