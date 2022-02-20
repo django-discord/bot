@@ -6,13 +6,14 @@ verify_ssl = true
 [packages]
 aiodns = "*"
 cchardet = "*"
-"discord.py" = "*"
+hikari = "*"
 python-dotenv = "*"
 
 [dev-packages]
 black = "*"
 flake8 = "*"
 isort = "*"
+mypy = "*"
 pre-commit = "*"
 
 [requires]
