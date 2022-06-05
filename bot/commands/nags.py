@@ -8,8 +8,11 @@ plugin = crescent.Plugin("nags")
 @crescent.message_command(name="just ask")
 async def just_ask_msg(ctx: crescent.Context, message: hikari.Message) -> None:
     await ctx.respond(
-        f"{message.author.mention}, "
-        "don't ask to ask, just ask: See https://dontasktoask.com/"
+        (
+            f"{message.author.mention}, "
+            "don't ask to ask, just ask: See https://dontasktoask.com/"
+        ),
+        user_mentions=[message.author],
     )
 
 
@@ -21,8 +24,11 @@ class JustAskSlash:
     async def callback(self, ctx: crescent.Context) -> None:
         if self.user:
             await ctx.respond(
-                f"{self.user.mention}, "
-                "don't ask to ask, just ask: See https://dontasktoask.com/"
+                (
+                    f"{self.user.mention}, "
+                    "don't ask to ask, just ask: See https://dontasktoask.com/"
+                ),
+                user_mentions=[self.user],
             )
         else:
             await ctx.respond(
