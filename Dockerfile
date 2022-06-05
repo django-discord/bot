@@ -1,17 +1,15 @@
-FROM python:3.9-slim
+FROM python:3.10-slim
 
 ENV PIP_NO_CACHE_DIR=false
 ENV POETRY_VIRTUALENVS_CREATE=false
 
-RUN pip install poetry
+RUN pip install pipenv
 
-WORKDIR /bot
+COPY Pipfile Pipfile.lock ./
 
-COPY pyproject.toml poetry.lock ./
-
-RUN poetry install --no-dev
+RUN pipenv install --no-dev
 
 COPY . .
 
 ENTRYPOINT ["python"]
-CMD ["-m", "bot"]
+CMD ["-OO", "-m", "bot"]

@@ -1,23 +1,24 @@
+import inspect
 import logging
 import os
 
-import hikari
+import commands
+import crescent
 from dotenv import load_dotenv
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO)
 
 
-bot = hikari.GatewayBot(token=os.environ["DISCORD_BOT_TOKEN"])
+if os.name != "nt":
+    import uvloop
+
+    uvloop.install()
 
 
-@bot.listen()
-async def ping(event: hikari.GuildMessageCreateEvent) -> None:
-    if event.is_bot or not event.content:
-        return
+bot = crescent.Bot(token=os.environ["DISCORD_BOT_TOKEN"])
 
-    if event.content.startswith("!ping"):
-        await event.message.respond("pong!")
-
+for module in inspect.getmembers(commands, predicate=inspect.ismodule):
+    bot.plugins.load(f"commands.{module[0]}")
 
 bot.run()

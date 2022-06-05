@@ -4,10 +4,10 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [packages]
-aiodns = "*"
-cchardet = "*"
-hikari = "*"
+hikari = {extras = ["speedups"]}
+hikari-crescent = "*"
 python-dotenv = "*"
+uvloop = "*"
 
 [dev-packages]
 black = "*"
