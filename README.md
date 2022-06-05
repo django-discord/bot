@@ -1,2 +1,2 @@
 # bot
-A Discord bot for... something.
+A Discord bot for the Django Discord server.
