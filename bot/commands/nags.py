@@ -1,5 +1,3 @@
-from typing import Annotated
-
 import crescent
 import hikari
 
