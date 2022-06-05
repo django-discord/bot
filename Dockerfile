@@ -12,4 +12,4 @@ RUN pipenv install --no-dev
 COPY . .
 
 ENTRYPOINT ["python"]
-CMD ["-OO", "-m", "bot"]
+CMD ["-OO", "bot"]
