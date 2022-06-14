@@ -505,11 +505,11 @@
         },
         "pycooldown": {
             "hashes": [
-                "sha256:0fec5fb8b1b74b02c9fe9dd6a4a867e56f3946300f1456c5048ff042c8085fe2",
-                "sha256:c6195dd6ba8cf6fa26e49ae587dbaef2af54cbe99fd79051a298c8e52dd552fa"
+                "sha256:3cf709ad63c15d88b4ede4a8314dced7b2fede6bc53cb97e4279dfb2e312cc4a",
+                "sha256:919de9eb625ec776b662eef427eba9c6d6e06dfcb16cc5eb1fcd4033c3afc105"
             ],
             "index": "pypi",
-            "version": "==0.1.0b7"
+            "version": "==0.1.0b8"
         },
         "pycparser": {
             "hashes": [
