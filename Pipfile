@@ -8,6 +8,9 @@ hikari = {extras = ["speedups"]}
 hikari-crescent = "*"
 python-dotenv = "*"
 uvloop = "*"
+black = "*"
+beautifulsoup4 = "*"
+guesslang = {ref = "d3b55c255d1886bce96610c04cb9241afca6f9d4", git = "https://github.com/SimeonAleksov/guesslang.git"}
 
 [dev-packages]
 black = "*"
