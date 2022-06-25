@@ -7,7 +7,6 @@ import crescent
 import events
 from dotenv import load_dotenv
 
-
 _LOG_PREFIX = "[BOT]"
 load_dotenv()
 logging.basicConfig(level=logging.INFO)

@@ -1,6 +1,5 @@
 import crescent
 import hikari
-
 from codeblocks.parsers import get_parser, should_parse_message
 
 plugin = crescent.Plugin("codeblocks")
@@ -15,7 +14,7 @@ async def on_message_format(event: hikari.MessageCreateEvent):
         return
 
     codeblock = get_parser(message=event.message)
-    if codeblock is not None: 
+    if codeblock is not None:
         await event.message.respond(
             "Please use the slash command `/markdown` for more information on how to properly format your code.",
             reply=True,

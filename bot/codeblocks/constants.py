@@ -14,11 +14,7 @@ class Language(enum.Enum):
         return [lang.value for lang in cls if lang.value]
 
     def get_markdown_name(self):
-        _mapping = {
-            "Python": "py",
-            "HTML": "html",
-            "JavaScript": "js"
-        }
+        _mapping = {"Python": "py", "HTML": "html", "JavaScript": "js"}
         return _mapping.get(self.value)
 
 

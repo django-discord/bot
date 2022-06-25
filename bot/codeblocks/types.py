@@ -3,7 +3,6 @@ from __future__ import annotations
 from typing import NamedTuple
 
 import hikari
-
 from codeblocks.constants import Language
 from markup import services as markdown_services
 

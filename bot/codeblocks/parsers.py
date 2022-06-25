@@ -1,16 +1,14 @@
 import abc
 import ast
 import logging
-from typing import Union, Optional
+from typing import Optional, Union
 
 import bs4
 import guesslang
 import hikari
-
-from codeblocks.constants import Language, LANGUAGE_GUESS_TRESHOLD
+from codeblocks.constants import LANGUAGE_GUESS_TRESHOLD, Language
 from codeblocks.types import Codeblock, MarkdownCodeblock
 from codeblocks.utils import black_string
-
 
 logger = logging.getLogger(__name__)
 _LOG_PREFIX = "[CODEBLOCK-PARSER]"
@@ -33,7 +31,6 @@ class CodeblockParser(abc.ABC):
     @abc.abstractmethod
     def format_code(self, content: str) -> str:
         pass
-
 
 
 class PythonParser(CodeblockParser):
@@ -82,12 +79,16 @@ class JavascriptParser(CodeblockParser):
     def is_javascript_code(cls, content: str) -> Optional[bool]:
         logger.info(f"{_LOG_PREFIX} Checking if message is valid javascript code.")
         guess = guesslang.Guess()
-        if dict(guess.probabilities(content))[Language.JAVASCRIPT.value] > LANGUAGE_GUESS_TRESHOLD:
+        if (
+            dict(guess.probabilities(content))[Language.JAVASCRIPT.value]
+            > LANGUAGE_GUESS_TRESHOLD
+        ):
             return guess.language_name(content) in Language.choices()
 
 
-
-def get_parser(message: hikari.Message) -> Optional[Union[HTMLParser, PythonParser, JavascriptParser]]:
+def get_parser(
+    message: hikari.Message,
+) -> Optional[Union[HTMLParser, PythonParser, JavascriptParser]]:
     if PythonParser.is_valid_python(content=message.content):
         logger.info(f"{_LOG_PREFIX} Message is unformatted python code.")
         return PythonParser(message=message)
@@ -107,8 +108,8 @@ def should_parse_message(content: str) -> bool:
 
 
 def _is_codeblock(content: str):
-    return content.startswith('```') and content.endswith("```")
+    return content.startswith("```") and content.endswith("```")
 
 
 def _is_inline_block(content: str):
-    return content.startswith('`') and content.endswith("`")
+    return content.startswith("`") and content.endswith("`")

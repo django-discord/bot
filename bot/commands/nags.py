@@ -1,6 +1,5 @@
 import crescent
 import hikari
-
 from codeblocks import constants as codeblocks_constants
 from markup import services as markup_services
 
@@ -40,7 +39,9 @@ class JustAskSlash:
 
 
 @plugin.include
-@crescent.command(name="markdown", description="How to properly format and markdown a codeblock.")
+@crescent.command(
+    name="markdown", description="How to properly format and markdown a codeblock."
+)
 class MarkdownCode:
     user = crescent.option(hikari.User, "The user to mention", default=None)
 
@@ -53,12 +54,8 @@ class MarkdownCode:
         )
         if self.user:
             await ctx.respond(
-                (
-                    message
-                ),
+                (message),
                 user_mentions=[self.user],
             )
         else:
-            await ctx.respond(
-                message
-            )
+            await ctx.respond(message)
