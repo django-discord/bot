@@ -19,7 +19,7 @@ class Language(enum.Enum):
 
 
 _EXAMPLE_CODE = black_string("def add_one(foo: int) -> int: return foo + 1")
-_ESCAPED_CODEBLOCK = f"\`\`\`python\n{_EXAMPLE_CODE}\n\`\`\`"
+_ESCAPED_CODEBLOCK = f"\`\`\`python\n{_EXAMPLE_CODE}\n\`\`\`"  # noqa: W605
 
 
 def get_escaped_codeblock():
