@@ -566,10 +566,11 @@
         },
         "types-croniter": {
             "hashes": [
-                "sha256:b8fa3fc5dc93df32115c8a43a1056c9f5a9df8cefc2f7ed41cce27b9d936b1f8",
-                "sha256:e1a972e23d7a2a066e8092fc0533f54f1e7ae07bb9ebe87120a8de1efb0d3965"
+                "sha256:e96e9c855247f294fb88cc1363a5eb93fd1df5943fe85dda29179285e00deabc",
+                "sha256:f529295f94aff6da82222739bbcdeed7fe98de9fe38597f04071d2a1b980ee06"
             ],
-            "version": "==1.3.1"
+            "index": "pypi",
+            "version": "==1.3.2"
         },
         "uvloop": {
             "hashes": [
@@ -888,11 +889,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:0d33c374d41c7863419fc8f6c10bfe25b7b498aa34164d135c622e52580c6b16",
-                "sha256:c04b44a57a6265fe34a4a444e965884716d34bae963119a76353434d6f18e450"
+                "sha256:273b6847ae61f7829c1affcdd9a32f67aa65233be508f4fbaab866c5faa4e408",
+                "sha256:d5340d16943a0f67057329db59b564e938bb3736c6e50ae16ea84d5e5d9ba6d0"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==63.2.0"
+            "version": "==63.3.0"
         },
         "toml": {
             "hashes": [
@@ -923,7 +924,7 @@
                 "sha256:0ef5be6d07181946891f5abc8047fda8bc2f0b4b9bf222c64e6e8963baee76db",
                 "sha256:635b272a8e2f77cb051946f46c60a54ace3cb5e25568228bd6b57fc70eca9ff3"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.6'",
             "version": "==20.16.2"
         }
     }
