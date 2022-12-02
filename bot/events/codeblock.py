@@ -8,7 +8,7 @@ plugin = crescent.Plugin("codeblocks")
 @plugin.include
 @crescent.event
 async def on_message_format(event: hikari.MessageCreateEvent):
-    if event.message.author.is_bot:
+    if event.message.author.is_bot or event.message.content is None:
         return
     if not should_parse_message(event.message.content):
         return

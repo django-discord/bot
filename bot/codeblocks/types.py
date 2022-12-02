@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import NamedTuple
+from typing import NamedTuple, Optional
 
 import hikari
 from codeblocks.constants import Language
@@ -11,7 +11,7 @@ class Codeblock(
     NamedTuple(
         "Codeblock",
         [
-            ("content", str),
+            ("content", Optional[str]),
             ("length", int),
         ],
     )
@@ -20,7 +20,9 @@ class Codeblock(
     def from_message(cls, message: hikari.Message) -> Codeblock:
         return cls(
             content=message.content,
-            length=len(message.content.split("\n")),
+            length=len(message.content.split("\n"))
+            if message.content is not None
+            else 0,
         )
 
 
@@ -28,7 +30,7 @@ class MarkdownCodeblock(
     NamedTuple(
         "MarkdownCodeblock",
         [
-            ("content", str),
+            ("content", Optional[str]),
         ],
     )
 ):

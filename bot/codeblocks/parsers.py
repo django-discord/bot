@@ -84,23 +84,24 @@ class JavascriptParser(CodeblockParser):
             > LANGUAGE_GUESS_TRESHOLD
         ):
             return guess.language_name(content) in Language.choices()
+        return None
 
 
 def get_parser(
     message: hikari.Message,
 ) -> Optional[Union[HTMLParser, PythonParser, JavascriptParser]]:
-    if PythonParser.is_valid_python(content=message.content):
-        logger.info(f"{_LOG_PREFIX} Message is unformatted python code.")
-        return PythonParser(message=message)
-    elif HTMLParser.is_valid_html(content=message.content):
-        logger.info(f"{_LOG_PREFIX} Message is unformatted html code.")
-        return HTMLParser(message=message)
-    elif JavascriptParser.is_javascript_code(content=message.content):
-        logger.info(f"{_LOG_PREFIX} Message is unformatted javascript code.")
-        return JavascriptParser(message=message)
-    else:
-        logger.info(f"{_LOG_PREFIX} Message is not valid code, no action necessary.")
-        return
+    if message.content is not None:
+        if PythonParser.is_valid_python(content=message.content):
+            logger.info(f"{_LOG_PREFIX} Message is unformatted python code.")
+            return PythonParser(message=message)
+        elif HTMLParser.is_valid_html(content=message.content):
+            logger.info(f"{_LOG_PREFIX} Message is unformatted html code.")
+            return HTMLParser(message=message)
+        elif JavascriptParser.is_javascript_code(content=message.content):
+            logger.info(f"{_LOG_PREFIX} Message is unformatted javascript code.")
+            return JavascriptParser(message=message)
+    logger.info(f"{_LOG_PREFIX} Message is not valid code, no action necessary.")
+    return None
 
 
 def should_parse_message(content: str) -> bool:

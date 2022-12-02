@@ -13,6 +13,7 @@ beautifulsoup4 = "*"
 guesslang = {ref = "d3b55c255d1886bce96610c04cb9241afca6f9d4", git = "https://github.com/SimeonAleksov/guesslang.git"}
 
 [dev-packages]
+types-beautifulsoup4 = "*"
 black = "*"
 flake8 = "*"
 isort = "*"

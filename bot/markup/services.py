@@ -20,3 +20,4 @@ def codeblock(text: str, language: Language) -> Optional[str]:
         return f"```{language.get_markdown_name()}\n{text}\n```"
     except AttributeError:
         pass
+    return None
