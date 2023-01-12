@@ -695,7 +695,7 @@
                 "sha256:e3a4b5d95d656a86e300f5c98af8d77db50fe8a73e80d76268a36156c53796c6",
                 "sha256:ec1bb31f7d1c8e4f2043e6a76ea8721aa18ec1da966ae29f69ed7278cb12449d"
             ],
-            "markers": "python_version < '4.0' and python_full_version >= '3.8.0'",
+            "markers": "python_version >= '3.8' and python_version < '4.0'",
             "version": "==0.1.0b11"
         },
         "pycparser": {
@@ -913,11 +913,11 @@
         },
         "identify": {
             "hashes": [
-                "sha256:0bc96b09c838310b6fcfcc61f78a981ea07f94836ef6ef553da5bb5d4745d662",
-                "sha256:e8a400c3062d980243d27ce10455a52832205649bbcaf27ffddb3dfaaf477bad"
+                "sha256:8aa48ce56e38c28b6faa9f261075dea0a942dfbb42b341b4e711896cbb40f3f7",
+                "sha256:abb546bca6f470228785338a01b539de8a85bbf46491250ae03363956d8ebb10"
             ],
-            "index": "pypi",
-            "version": "==2.5.12"
+            "markers": "python_version >= '3.7'",
+            "version": "==2.5.13"
         },
         "isort": {
             "hashes": [
@@ -1074,18 +1074,18 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:57f6f22bde4e042978bcd50176fdb381d7c21a9efa4041202288d3737a0c6a54",
-                "sha256:a7620757bf984b58deaf32fc8a4577a9bbc0850cf92c20e1ce41c38c19e5fb75"
+                "sha256:4d3c92fac8f1118bb77a22181355e29c239cabfe2b9effdaa665c66b711136d7",
+                "sha256:8ab4f1dbf2b4a65f7eec5ad0c620e84c34111a68d3349833494b9088212214dd"
             ],
-            "markers": "python_version >= '3.7'",
-            "version": "==65.6.3"
+            "index": "pypi",
+            "version": "==65.7.0"
         },
         "tomli": {
             "hashes": [
                 "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc",
                 "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
             ],
-            "markers": "python_version < '3.11'",
+            "markers": "python_full_version < '3.11.0a7'",
             "version": "==2.0.1"
         },
         "typing-extensions": {
