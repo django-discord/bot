@@ -731,10 +731,11 @@
         },
         "types-croniter": {
             "hashes": [
-                "sha256:1f0a14b9465471f460640de935e8e4a9b3fe90537ff1f287594e6e53f3ff6b86",
-                "sha256:469e795a71f45fd2895af3accfccfbf337c9df364fcc23a8768417cbf1447339"
+                "sha256:46ce48b34ef47ccba78bf6df69ec2cf1059dd135802123a14d51f50b3934fc1a",
+                "sha256:c9faac268046df4c4a7c9df3632e743f531711568d09bffc3a99621ad1e8594d"
             ],
-            "version": "==1.3.2.1"
+            "index": "pypi",
+            "version": "==1.3.2.2"
         },
         "uvloop": {
             "hashes": [
@@ -1077,7 +1078,7 @@
                 "sha256:a78d01d1e2c175c474884671dde039962c9d74c7223db7369771fcf6e29ceeab",
                 "sha256:bd6eb2d6722568de6d14b87c44a96fac54b2a45ff5e940e639979a3d1792adb6"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==66.0.0"
         },
         "tomli": {
