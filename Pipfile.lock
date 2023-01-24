@@ -913,11 +913,11 @@
         },
         "identify": {
             "hashes": [
-                "sha256:8aa48ce56e38c28b6faa9f261075dea0a942dfbb42b341b4e711896cbb40f3f7",
-                "sha256:abb546bca6f470228785338a01b539de8a85bbf46491250ae03363956d8ebb10"
+                "sha256:1f4b36c5f50f3f950864b2a047308743f064eaa6f6645da5e5c780d1c7125487",
+                "sha256:c22aa206f47cc40486ecf585d27ad5f40adbfc494a3fa41dc3ed0499a23b123f"
             ],
-            "markers": "python_version >= '3.7'",
-            "version": "==2.5.13"
+            "index": "pypi",
+            "version": "==2.5.15"
         },
         "isort": {
             "hashes": [
@@ -1085,7 +1085,7 @@
                 "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc",
                 "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
             ],
-            "markers": "python_version < '3.11'",
+            "markers": "python_full_version < '3.11.0a7'",
             "version": "==2.0.1"
         },
         "typing-extensions": {
