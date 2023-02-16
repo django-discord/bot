@@ -781,7 +781,7 @@
                 "sha256:e3a4b5d95d656a86e300f5c98af8d77db50fe8a73e80d76268a36156c53796c6",
                 "sha256:ec1bb31f7d1c8e4f2043e6a76ea8721aa18ec1da966ae29f69ed7278cb12449d"
             ],
-            "markers": "python_version >= '3.8' and python_version < '4.0'",
+            "markers": "python_version < '4.0' and python_full_version >= '3.8.0'",
             "version": "==0.1.0b11"
         },
         "pycparser": {
@@ -817,10 +817,11 @@
         },
         "types-croniter": {
             "hashes": [
-                "sha256:60fb02c85514050d9773e1b467213d0ab37c9fc3c9fc39081cd8b33346fc502a",
-                "sha256:e62375bfc31f816fad580cd17e462a0cd485470c9a61e3d4a46bad4a7b02d04d"
+                "sha256:78d3225f3c48c361156bc802eb8e071da990eec8f46b356c00abfef7aa067ebb",
+                "sha256:8e73950d88601fb1fcb0ab5603560c2ab60597a7934c4877db541e53873db051"
             ],
-            "version": "==1.3.2.3"
+            "index": "pypi",
+            "version": "==1.3.2.4"
         },
         "uvloop": {
             "hashes": [
@@ -1177,11 +1178,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:23c86b4e44432bfd8899384afc08872ec166a24f48a3f99f293b0a557e6a6b5d",
-                "sha256:daec07fd848d80676694d6bf69c009d28910aeece68a38dbe88b7e1bb6dba12e"
+                "sha256:95f00380ef2ffa41d9bba85d95b27689d923c93dfbafed4aecd7cf988a25e012",
+                "sha256:bb6d8e508de562768f2027902929f8523932fcd1fb784e6d573d2cafac995a48"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==67.3.1"
+            "version": "==67.3.2"
         },
         "tomli": {
             "hashes": [
@@ -1196,7 +1197,7 @@
                 "sha256:5cb5f4a79139d699607b3ef622a1dedafa84e115ab0024e0d9c044a9479ca7cb",
                 "sha256:fb33085c39dd998ac16d1431ebc293a8b3eedd00fd4a32de0ff79002c19511b4"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==4.5.0"
         },
         "virtualenv": {
