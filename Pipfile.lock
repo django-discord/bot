@@ -817,10 +817,10 @@
         },
         "types-croniter": {
             "hashes": [
-                "sha256:afae01535de130cc348254e9f8e5021e4e742c2313fcde16267f204511c3f324",
-                "sha256:d482c50efc2ff8bfac1033ac510a0e8deace17d9d21436ec6113c6c0c061c21b"
+                "sha256:26c5c406c24a73349bbd6d2fa8fa6d804a83ca4c6c057bb12378f6709ffbd2d9",
+                "sha256:f00743d0b776979b8d940cf0fcf709ce85335383ba53e643f806a9b8b5ed23fe"
             ],
-            "version": "==1.3.2.5"
+            "version": "==1.3.2.6"
         },
         "uvloop": {
             "hashes": [
@@ -1107,11 +1107,11 @@
         },
         "pre-commit": {
             "hashes": [
-                "sha256:9e3255edb0c9e7fe9b4f328cb3dc86069f8fdc38026f1bf521018a05eaf4d67b",
-                "sha256:bc4687478d55578c4ac37272fe96df66f73d9b5cf81be6f28627d4e712e752d5"
+                "sha256:61bd9f1b96d3d1e763f2a9a0f8522aed341646800642ff6803c73fac5781f5b7",
+                "sha256:7001dfcd174540658822b1fd3630ceadf4f41375a5d1844b5c3b3830f227348c"
             ],
             "index": "pypi",
-            "version": "==3.0.4"
+            "version": "==3.1.0"
         },
         "pycodestyle": {
             "hashes": [
@@ -1180,7 +1180,7 @@
                 "sha256:e5fd0a713141a4a105412233c63dc4e17ba0090c8e8334594ac790ec97792330",
                 "sha256:f106dee1b506dee5102cc3f3e9e68137bbad6d47b616be7991714b0c62204251"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==67.4.0"
         },
         "tomli": {
