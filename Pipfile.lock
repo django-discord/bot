@@ -781,7 +781,7 @@
                 "sha256:e3a4b5d95d656a86e300f5c98af8d77db50fe8a73e80d76268a36156c53796c6",
                 "sha256:ec1bb31f7d1c8e4f2043e6a76ea8721aa18ec1da966ae29f69ed7278cb12449d"
             ],
-            "markers": "python_version >= '3.8' and python_version < '4.0'",
+            "markers": "python_version < '4.0' and python_full_version >= '3.8.0'",
             "version": "==0.1.0b11"
         },
         "pycparser": {
@@ -1099,11 +1099,11 @@
         },
         "platformdirs": {
             "hashes": [
-                "sha256:8a1228abb1ef82d788f74139988b137e78692984ec7b08eaa6c65f1723af28f9",
-                "sha256:b1d5eb14f221506f50d6604a561f4c5786d9e80355219694a1b244bcd96f4567"
+                "sha256:13b08a53ed71021350c9e300d4ea8668438fb0046ab3937ac9a29913a1a1350a",
+                "sha256:accc3665857288317f32c7bebb5a8e482ba717b474f3fc1d18ca7f9214be0cef"
             ],
-            "markers": "python_version >= '3.7'",
-            "version": "==3.0.0"
+            "index": "pypi",
+            "version": "==3.1.0"
         },
         "pre-commit": {
             "hashes": [
@@ -1177,11 +1177,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:e5fd0a713141a4a105412233c63dc4e17ba0090c8e8334594ac790ec97792330",
-                "sha256:f106dee1b506dee5102cc3f3e9e68137bbad6d47b616be7991714b0c62204251"
+                "sha256:113ff8d482b826d2f3b99f26adb1fe505e526a94a08e68cdf392d1dff9ce0595",
+                "sha256:9f0004c0daa3d41ef4465934a89498da3eef994039f48845d6eb8202aa13b2e9"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==67.4.0"
+            "version": "==67.5.0"
         },
         "tomli": {
             "hashes": [
@@ -1204,7 +1204,7 @@
                 "sha256:3c22fa5a7c7aa106ced59934d2c20a2ecb7f49b4130b8bf444178a16b880fa45",
                 "sha256:a8a4b8ca1e28f864b7514a253f98c1d62b64e31e77325ba279248c65fb4fcef4"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==20.20.0"
         }
     }
