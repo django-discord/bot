@@ -986,7 +986,7 @@
                 "sha256:3199fd0d3faea8b911be52b663dfccceb84c95949dd13179aa21436d1a79c4ce",
                 "sha256:e90b34656470756edf8b19656785c5fea73afa1953f3e1b0d645cef11cab3182"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==3.10.0"
         },
         "flake8": {
@@ -999,11 +999,11 @@
         },
         "identify": {
             "hashes": [
-                "sha256:5dfef8a745ca4f2c95f27e9db74cb4c8b6d9916383988e8791f3595868f78a33",
-                "sha256:c8b288552bc5f05a08aff09af2f58e6976bf8ac87beb38498a0e3d98ba64eb18"
+                "sha256:69edcaffa8e91ae0f77d397af60f148b6b45a8044b2cc6d99cafa5b04793ff00",
+                "sha256:7671a05ef9cfaf8ff63b15d45a91a1147a03aaccb2976d4e9bd047cbbc508471"
             ],
-            "markers": "python_version >= '3.7'",
-            "version": "==2.5.20"
+            "index": "pypi",
+            "version": "==2.5.21"
         },
         "isort": {
             "hashes": [
