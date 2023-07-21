@@ -791,10 +791,11 @@
         },
         "types-croniter": {
             "hashes": [
-                "sha256:4b8f5e258a236213ebcd547514828d90fde56e16066b09f071e8886941d6ceb3",
-                "sha256:b0ace20837c6f33da46c7028d260fb7296b7074369452372463ec5d9cc99d3dd"
+                "sha256:5821688c93b874500b6863b8a164a8dbc49efdced985d00cbdddc029b81067b8",
+                "sha256:b8996c11d5e942be59d669388e2515e50ca4935b61e4337bac9e81bfdde9cf72"
             ],
-            "version": "==1.4.0.0"
+            "index": "pypi",
+            "version": "==1.4.0.1"
         },
         "uvloop": {
             "hashes": [
@@ -986,7 +987,7 @@
                 "sha256:9df2489842707d431b38ce3410ef8df40da5b10a3e28a3fcac1a42523e956409",
                 "sha256:db4de0e758c0db8f81996816cd2f3f2f8c5c8d49a7fd02f3b4109aac6fd80e29"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==2.5.25"
         },
         "isort": {
