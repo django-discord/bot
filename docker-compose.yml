@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  ddb:
+    container_name: "ddb"
+    build: .
+    restart: "unless-stopped"
+    env_file:
+      - ./.env
+    volumes:
+      - ./feeds.json:/app/feeds.json

@@ -1,5 +1,2 @@
 [tool.isort]
 profile = "black"
-
-[tool.mypy]
-files = "."
