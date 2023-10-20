@@ -1,6 +1,0 @@
-name: Dependabot auto-merge
-on: pull_request_target
-
-jobs:
-  dependabot-auto-merge:
-    uses: knyghty/actions/.github/workflows/dependabot-auto-merge.yml@main

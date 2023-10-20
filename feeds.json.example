@@ -1,0 +1,12 @@
+{
+  "Django Forum": {
+    "url": "https://forum.djangoproject.com/c/projects/11.rss",
+    "converter": "rss.converter.Converter",
+    "destination_channel_id": 0000000000000000000
+  },
+  "Django Chat": {
+    "url": "https://feeds.simplecast.com/WpQaX_cs",
+    "converter": "rss.converter.Converter",
+    "destination_channel_id": 0000000000000000000
+  }
+}

@@ -1,31 +1,13 @@
-FROM python:3.10-slim AS builder
+FROM python:3.11.5-alpine
 
-WORKDIR /build
-
-ENV PIPENV_VENV_IN_PROJECT=1
-
-RUN pip install --user pipenv setuptools wheel
-
-RUN apt-get -y update && apt-get -y install --no-install-recommends \
-    g++
-
-COPY Pipfile Pipfile.lock /build/
-
-RUN pip install --user pipenv
-
-RUN /root/.local/bin/pipenv install --deploy
-
-
-FROM python:3.10-slim
+ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-COPY --from=builder /build/.venv/ /opt/venv/
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
 COPY . .
 
-# Prefer Python from the virtual environment.
-ENV PATH="/opt/venv/bin:$PATH"
-
 ENTRYPOINT ["python"]
-CMD ["-OO", "bot"]
+CMD ["main.py"]
