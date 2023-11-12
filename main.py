@@ -3,11 +3,12 @@
 import asyncio
 import json
 import logging
+import os
 import pathlib
 import textwrap
 
-import decouple
 import discord
+import dotenv
 from discord.ext import commands
 from discord.ext.commands import Context
 from discord.ext.tasks import loop
@@ -15,13 +16,26 @@ from discord.ext.tasks import loop
 import rss.converter
 from rss.feed import RSSFeed
 
-config = decouple.config
+dotenv.load_dotenv()
 
 logger = logging.getLogger(__name__)
 
 BASE_DIR = pathlib.Path(__file__).parent
-MESSAGE_LIMIT = config("DISCORD_MAX_MESSAGE_LENGTH", cast=int)
-DISCORD_ERROR_USER_IDS = config("DISCORD_ERROR_USER_IDS", cast=list[str])
+AUDIO_DIRECTORY = BASE_DIR / "audio"
+
+DISCORD_TOKEN = os.environ["DISCORD_TOKEN"]
+DISCORD_ERROR_USER_IDS = map(
+    int, os.environ.get("DISCORD_ERROR_USER_IDS", default="").split(",")
+)
+MESSAGE_LIMIT = int(os.environ.get("DISCORD_MAX_MESSAGE_LENGTH", default="2000"))
+RSS_SYNC_INTERVAL_SECONDS = int(
+    os.environ.get("RSS_SYNC_INTERVAL_SECONDS", default="120")
+)
+
+
+class NotForumChannelError(Exception):
+    """Raised when a channel is not a forum type channel."""
+
 
 with (BASE_DIR / "feeds.json").open() as file:
     feed_specifications = json.load(file)
@@ -44,24 +58,24 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="-", intents=intents)
 
-LOCAL_AUDIO_FILE_PATH = "audio"
-
 
 def is_post_already_in_channel(post, channel) -> bool:
     """Check if a post is already in a channel."""
     return any((thread.name == post.title) for thread in channel.threads)
 
 
-async def sync_feed(into_channel_id: int, feed: RSSFeed):
+async def sync_feed(channel_id: int, feed: RSSFeed):
     """Synchronise an RSS feed with a channel."""
-    channel = await bot.fetch_channel(into_channel_id)
+    channel = await bot.fetch_channel(channel_id)
+    if not isinstance(channel, discord.channel.ForumChannel):
+        raise NotForumChannelError(channel_id)
     posts = feed.posts()
     # If we don't have any threads, then start creating the last posts first
     # This is just to at least try to preserve the order of posts
     # Note, this may not *actually* work, we assume that the rss feed is sorted
     # in chronological order to begin with
     if not channel.threads:
-        posts = reversed(posts)
+        posts = reversed(list(posts))
     for post in posts:
         logger.info("Found post '%s'", post.title)
         if is_post_already_in_channel(post, channel):
@@ -78,7 +92,7 @@ async def sync_feed(into_channel_id: int, feed: RSSFeed):
             await thread_with_message.thread.send(chunk, suppress_embeds=True)
 
 
-@loop(seconds=config("RSS_SYNC_INTERVAL_SECONDS", cast=int))
+@loop(seconds=RSS_SYNC_INTERVAL_SECONDS)
 @commands.has_permissions(kick_members=True)
 @discord.app_commands.guild_only()
 async def sync_feeds():
@@ -89,8 +103,7 @@ async def sync_feeds():
     """
     for channel_id, feed in feeds.items():
         logger.info("Fetching feed '%s'", feed.name)
-
-        await sync_feed(into_channel_id=channel_id, feed=feed)
+        await sync_feed(channel_id=channel_id, feed=feed)
 
 
 @bot.hybrid_command(name="justask", description="Nag a user to not ask to ask")
@@ -103,7 +116,6 @@ async def just_ask(ctx, user: discord.User | None):
             f"<@{user.id}>, don't ask to ask, just ask: https://dontasktoask.com"
         )
         return
-
     await ctx.reply("Don't ask to ask, just ask: https://dontasktoask.com")
 
 
@@ -115,7 +127,7 @@ async def autocomplete_sound_files(
         discord.app_commands.Choice(
             name=f"{file.stem} ({file.suffix})", value=str(file)
         )
-        for file in pathlib.Path(LOCAL_AUDIO_FILE_PATH).iterdir()
+        for file in AUDIO_DIRECTORY.iterdir()
         if file.is_file() and current in file.name
     ]
 
@@ -146,7 +158,6 @@ async def play_sound_in_channels(
     to the next channel until the sound has been played on all channels.
     """
     await ctx.reply("Starting up")
-
     voice_channel = discord.utils.get(ctx.bot.voice_clients)
     if voice_channel.is_connected():
         await ctx.reply(
@@ -155,7 +166,6 @@ async def play_sound_in_channels(
             "or forcefully disconnect me if you think there has been a problem."
         )
         return
-
     for channel_id in channels:
         channel = bot.get_channel(channel_id)
         if not isinstance(channel, discord.VoiceChannel):
@@ -163,7 +173,6 @@ async def play_sound_in_channels(
                 f"{channel_id} is not a valid voice channel id. I'm going to skip it."
             )
             continue
-
         voice_channel: discord.VoiceClient = await channel.connect()
         voice = discord.PCMVolumeTransformer(
             discord.FFmpegPCMAudio(sound), volume=volume
@@ -171,10 +180,8 @@ async def play_sound_in_channels(
         voice_channel.play(voice)
         while voice_channel.is_playing():
             await asyncio.sleep(0.1)
-
         await voice_channel.voice_disconnect()
         await voice_channel.disconnect()
-
     await ctx.reply("Finished")
 
 
@@ -199,13 +206,9 @@ async def on_error(event_method: str, /, *_) -> None:
     """Event handler for when an error occurs."""
     # This, of course, won't work if discord itself is having issues
     logger.error("An error occurred in the event method: %s", event_method)
-
     for user_id in DISCORD_ERROR_USER_IDS:
-        DISCORD_ERROR_USER_IDS.remove(user_id)
         logger.info("Sending error message to user: %s", user_id)
-
         user = await bot.fetch_user(user_id)
-
         await user.send(
             "Howdy there!\n"
             f"A runtime error occurred in the function '{event_method}'.\n"
@@ -218,4 +221,4 @@ async def on_error(event_method: str, /, *_) -> None:
 
 
 if __name__ == "__main__":
-    bot.run(config("DISCORD_TOKEN"))
+    bot.run(DISCORD_TOKEN)

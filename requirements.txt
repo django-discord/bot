@@ -1,6 +1,7 @@
 aiohttp==3.9.0b0
-python-decouple==3.8
 feedparser==6.0.10
 discord.py[voice]==2.3.2
 markdownify==0.11.6
 pre-commit==3.5.0
+pyright==1.1.335
+python-dotenv==1.0.0

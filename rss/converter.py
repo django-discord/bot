@@ -26,7 +26,7 @@ class Converter(MarkdownConverter):
         return super().convert_p(*args, **kwargs).removesuffix("\n")
 
 
-def load_converter(path) -> Converter.__class__:
+def load_converter(path) -> type[Converter]:
     """Return the loaded converter from its dot path."""
     module_path, class_name = path.rsplit(".", 1)
     return getattr(importlib.import_module(module_path), class_name)
