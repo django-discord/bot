@@ -1,4 +1,5 @@
-from typing import Iterable
+"""RSS Feed module."""
+from collections.abc import Iterable
 
 import feedparser
 
@@ -10,12 +11,13 @@ class RSSFeed:
     """Represents a public rss feed."""
 
     def __init__(self, url: str, name: str, converter: Converter):
+        """Initialise the feed."""
         self.url = url
         self.name = name
         self.converter = converter
 
     def posts(self) -> Iterable[Post]:
-        """Yields the posts of this rss feed."""
+        """Yield the posts of this rss feed."""
         feed = feedparser.parse(self.url)
 
         for post in feed.entries:
@@ -29,8 +31,9 @@ class RSSFeed:
             )
 
     def posts_raw(self) -> Iterable:
-        """Returns the raw feedparser entries"""
+        """Return the raw feedparser entries."""
         return feedparser.parse(self.url).entries
 
     def __str__(self):
+        """Return the name of the feed, or the url if no name is set."""
         return self.name if self.name else self.url

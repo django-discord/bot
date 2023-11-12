@@ -1,3 +1,4 @@
+"""RSS Post module."""
 from rss.converter import Converter
 
 
@@ -13,6 +14,7 @@ class Post:
         content_enctype: str,
         converter: Converter,
     ):
+        """Initialise the post."""
         self.link = link
         self.title = title
         self.author = author
@@ -21,7 +23,9 @@ class Post:
         self.converter = converter
 
     def render_content(self):
+        """Return the rendered content of this post."""
         return self.converter.convert(self.raw_content)
 
     def __str__(self):
+        """Return the title of the post."""
         return self.title
