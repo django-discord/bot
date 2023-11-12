@@ -6,6 +6,7 @@ import logging
 import os
 import pathlib
 import textwrap
+import typing
 
 import discord
 import dotenv
@@ -38,16 +39,23 @@ class NotForumChannelError(Exception):
     """Raised when a channel is not a forum type channel."""
 
 
-with (BASE_DIR / "feeds.json").open() as file:
-    feed_specifications = json.load(file)
+class FeedSpecification(typing.TypedDict):
+    """Feed specification."""
 
+    converter: str
+    destination_channel_id: int
+    url: str
+
+
+with (BASE_DIR / "feeds.json").open() as file:
+    feed_specifications: dict[str, FeedSpecification] = json.load(file)
 
 feeds: dict[int, RSSFeed] = {}
 for name, feed_spec in feed_specifications.items():
     feed = RSSFeed(
-        url=feed_spec.get("url"),
+        url=feed_spec["url"],
         name=name,
-        converter=rss.converter.load_converter(feed_spec.get("converter"))(),
+        converter=rss.converter.load_converter(feed_spec["converter"])(),
     )
     feeds |= {feed_spec.get("destination_channel_id"): feed}
 

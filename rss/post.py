@@ -24,7 +24,7 @@ class Post:
 
     def render_content(self) -> str:
         """Return the rendered content of this post."""
-        return self.converter.convert(self.raw_content)  # type: ignore
+        return self.converter.convert(self.raw_content)
 
     def __str__(self):
         """Return the title of the post."""

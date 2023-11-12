@@ -5,3 +5,4 @@ markdownify==0.11.6
 pre-commit==3.5.0
 pyright==1.1.335
 python-dotenv==1.0.0
+types-beautifulsoup4==4.12.0.7

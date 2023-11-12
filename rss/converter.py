@@ -1,13 +1,14 @@
 """HTML to markdown converter."""
 import importlib
 
+from bs4.element import Tag
 from markdownify import MarkdownConverter
 
 
 class Converter(MarkdownConverter):
     """General converter for converting from HTML to Discord flavour markdown."""
 
-    def convert_img(self, el, text, convert_as_inline):
+    def convert_img(self, el: Tag, text: str, convert_as_inline: bool) -> str:
         """Return the image source from a tag.
 
         Discord doesn't display images using the default markdown way,
@@ -21,12 +22,12 @@ class Converter(MarkdownConverter):
             return el.attrs.get("alt")
         return el.attrs.get("src")
 
-    def convert_p(self, *args, **kwargs):
+    def convert_p(self, el: Tag, text: str, convert_as_inline: bool) -> str:
         """Convert a paragraph tag to one newlines, rather than two."""
-        return super().convert_p(*args, **kwargs).removesuffix("\n")
+        return super().convert_p(el, text, convert_as_inline).removesuffix("\n")
 
 
-def load_converter(path) -> type[Converter]:
+def load_converter(path: str) -> type[Converter]:
     """Return the loaded converter from its dot path."""
     module_path, class_name = path.rsplit(".", 1)
     return getattr(importlib.import_module(module_path), class_name)
