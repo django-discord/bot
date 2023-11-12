@@ -15,6 +15,7 @@ from discord.ext.tasks import loop
 
 import rss.converter
 from rss.feed import RSSFeed
+from rss.post import Post
 
 dotenv.load_dotenv()
 
@@ -41,15 +42,14 @@ with (BASE_DIR / "feeds.json").open() as file:
     feed_specifications = json.load(file)
 
 
-feeds = {}
+feeds: dict[int, RSSFeed] = {}
 for name, feed_spec in feed_specifications.items():
     feed = RSSFeed(
         url=feed_spec.get("url"),
         name=name,
         converter=rss.converter.load_converter(feed_spec.get("converter"))(),
     )
-
-    feeds.update({feed_spec.get("destination_channel_id"): feed})
+    feeds |= {feed_spec.get("destination_channel_id"): feed}
 
 
 discord.utils.setup_logging()
@@ -59,15 +59,15 @@ intents.message_content = True
 bot = commands.Bot(command_prefix="-", intents=intents)
 
 
-def is_post_already_in_channel(post, channel) -> bool:
+def is_post_already_in_channel(post: Post, channel) -> bool:
     """Check if a post is already in a channel."""
     return any((thread.name == post.title) for thread in channel.threads)
 
 
-async def sync_feed(channel_id: int, feed: RSSFeed):
+async def sync_feed(channel_id: int, feed: RSSFeed) -> None:
     """Synchronise an RSS feed with a channel."""
     channel = await bot.fetch_channel(channel_id)
-    if not isinstance(channel, discord.channel.ForumChannel):
+    if not isinstance(channel, discord.ForumChannel):
         raise NotForumChannelError(channel_id)
     posts = feed.posts()
     # If we don't have any threads, then start creating the last posts first
@@ -95,7 +95,7 @@ async def sync_feed(channel_id: int, feed: RSSFeed):
 @loop(seconds=RSS_SYNC_INTERVAL_SECONDS)
 @commands.has_permissions(kick_members=True)
 @discord.app_commands.guild_only()
-async def sync_feeds():
+async def sync_feeds() -> None:
     """Synchronise RSS feeds.
 
     Fetches posts from feeds and inserts them (if not already present)
@@ -109,7 +109,7 @@ async def sync_feeds():
 @bot.hybrid_command(name="justask", description="Nag a user to not ask to ask")
 @discord.app_commands.describe(user="The user to mention")
 @discord.app_commands.guild_only()
-async def just_ask(ctx, user: discord.User | None):
+async def just_ask(ctx: Context, user: discord.User | None) -> None:
     """Nag a user to not ask to ask."""
     if user:
         await ctx.reply(
@@ -150,8 +150,8 @@ async def autocomplete_sound_files(
 @commands.has_permissions(kick_members=True)
 @discord.app_commands.guild_only()
 async def play_sound_in_channels(
-    ctx: Context, sound, volume: float, channels: commands.Greedy[int]
-):
+    ctx: Context, sound: str, volume: float, channels: commands.Greedy[int]
+) -> None:
     """Play a sound in multiple channels.
 
     This command will join a channel, play the sound, and then continue
@@ -188,14 +188,14 @@ async def play_sound_in_channels(
 @bot.hybrid_command(name="sync", description="Synchronize all the bot's commands")
 @commands.has_permissions(kick_members=True)
 @discord.app_commands.guild_only()
-async def sync(ctx: Context):
+async def sync(ctx: Context) -> None:
     """Synchronize all the bot's commands."""
     await bot.tree.sync()
     await ctx.reply("Finished sync")
 
 
 @bot.event
-async def on_ready():
+async def on_ready() -> None:
     """Event handler for when the bot is ready."""
     logger.info("Logged on as %s!", bot.user)
     sync_feeds.start()

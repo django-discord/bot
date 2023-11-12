@@ -1,5 +1,5 @@
 """RSS Feed module."""
-from collections.abc import Iterable
+import typing
 
 import feedparser
 
@@ -16,7 +16,7 @@ class RSSFeed:
         self.name = name
         self.converter = converter
 
-    def posts(self) -> Iterable[Post]:
+    def posts(self) -> typing.Generator[Post, None, None]:
         """Yield the posts of this rss feed."""
         feed = feedparser.parse(self.url)
 
@@ -30,7 +30,7 @@ class RSSFeed:
                 converter=self.converter,
             )
 
-    def posts_raw(self) -> Iterable:
+    def posts_raw(self) -> feedparser.util.FeedParserDict:
         """Return the raw feedparser entries."""
         return feedparser.parse(self.url).entries
 

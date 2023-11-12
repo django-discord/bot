@@ -22,9 +22,9 @@ class Post:
         self.content_enctype = content_enctype
         self.converter = converter
 
-    def render_content(self):
+    def render_content(self) -> str:
         """Return the rendered content of this post."""
-        return self.converter.convert(self.raw_content)
+        return self.converter.convert(self.raw_content)  # type: ignore
 
     def __str__(self):
         """Return the title of the post."""

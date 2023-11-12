@@ -1,3 +1,8 @@
+[tool.pyright]
+pythonVersion = "3.12"
+venv = "venv"
+venvPath = "."
+
 [tool.ruff]
 ignore = [
     # PEP 257
