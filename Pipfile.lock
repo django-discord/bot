@@ -102,7 +102,6 @@
                 "sha256:f929f4c9b9a00f3e6cc0587abb95ab9c05681f8b14e0fe1daecfa83ea90f8318",
                 "sha256:f9e09a1c83521d770d170b3801eea19b89f41ccaa61d53026ed111cb6f088887"
             ],
-            "index": "pypi",
             "markers": "python_version >= '3.8'",
             "version": "==3.9.0"
         },
@@ -557,18 +556,17 @@
                 "sha256:0c6727b7315a2a61dc419c943d2fa6b2761f556edc9e697351d4d3bdd950df8b",
                 "sha256:54b62e74c19a7b3f91ed75f954fabad67eb262b6cd6f763ba0ec4b3d4f0f0a62"
             ],
-            "index": "pypi",
             "markers": "python_version < '3.12' and python_full_version >= '3.8.0'",
             "version": "==2.0.0.dev121"
         },
         "hikari-crescent": {
             "hashes": [
-                "sha256:4be12e50facad3f85f5d625c0d88f02484af86356569f3e09b504e37439e23bb",
-                "sha256:c01af801bc30e814186413d2166f3940921d553faa6344d02dd3918b98cc7be0"
+                "sha256:347bc397d1674d5b9c8720ad271dc1dccc92680b4a0088632c04bc1f07bb10d2",
+                "sha256:373875237c0d3214077bd2a0527cac17d0241db08ed0ebee1a955a853c8f867a"
             ],
             "index": "pypi",
-            "markers": "python_version < '3.11' and python_version >= '3.8'",
-            "version": "==0.2.4"
+            "markers": "python_version < '3.12' and python_version >= '3.8'",
+            "version": "==0.6.4"
         },
         "idna": {
             "hashes": [
@@ -797,6 +795,14 @@
                 "sha256:ce42d816b81b68506614c11e8937d3aa9e41007ceb50bfdcb0749b921bf646c7"
             ],
             "version": "==2023.3.post1"
+        },
+        "sigparse": {
+            "hashes": [
+                "sha256:51926c7914e5386d43d9503036c93e698e5a32cb88fc8336d89187739f04ddee",
+                "sha256:608d14fd5ead44d84482f2a1139803a0416157a0bac2fffa12382caac9566680"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==3.0.0"
         },
         "six": {
             "hashes": [
