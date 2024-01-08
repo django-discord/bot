@@ -826,12 +826,12 @@
         },
         "types-croniter": {
             "hashes": [
-                "sha256:a49162276f97a2924609768bcc494039fd5182e8f94eba900ce2bee989e8baa6",
-                "sha256:f6b47bce88054127551091e9e447824cbb610e8ff9b84565903f7a53fa4933aa"
+                "sha256:266d9ecabbc06afab7cc0cfa7f2149eb36f613ed66ddd6c9bac4edcf727e9a58",
+                "sha256:a5c92566d750e025ab31279029ab44b479e2e3509cd8db3784574bdab1012571"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.7'",
-            "version": "==2.0.0.0"
+            "markers": "python_version >= '3.8'",
+            "version": "==2.0.0.20240106"
         },
         "uvloop": {
             "hashes": [
