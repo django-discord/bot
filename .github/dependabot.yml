@@ -1,25 +1,38 @@
 version: 2
+
 updates:
   - package-ecosystem: "github-actions"
     assignees:
       - "knyghty"
     directory: "/"
+    groups:
+      all:
+        patterns:
+          - "*"
     reviewers:
       - "knyghty"
     schedule:
       day: "monday"
       interval: "weekly"
-      time: "09:00"
+      time: "06:00"
       timezone: "Europe/Amsterdam"
+
   - package-ecosystem: "pip"
     allow:
-      - dependency-type: all
+      - dependency-name: "*"
+        dependency-type: "all"
     assignees:
       - "knyghty"
     directory: "/"
+    groups:
+      all:
+        patterns:
+          - "*"
+    open-pull-requests-limit: 10
     reviewers:
       - "knyghty"
     schedule:
-      interval: "daily"
-      time: "09:00"
+      day: "monday"
+      interval: "weekly"
+      time: "06:00"
       timezone: "Europe/Amsterdam"
