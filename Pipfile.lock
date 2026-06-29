@@ -165,6 +165,7 @@
                 "sha256:053243f8b92b990551949e63930a839ff0cf0b0ebbe0597b0f3fb19e1a0fe82e",
                 "sha256:f47eecd9468083c2029cc99945502cb7708b082c232f9aca65da147157b251c7"
             ],
+            "index": "pypi",
             "markers": "python_version >= '3.9'",
             "version": "==1.4.0"
         },
@@ -173,6 +174,7 @@
                 "sha256:39e3809566ff85354557ec2398b55e096c8364bacac9405a7a1fa429e77fe76c",
                 "sha256:d9321a7a3d5a6a5e187e824d2fa0793ce379a202935782d555d6e9d2735677d3"
             ],
+            "index": "pypi",
             "markers": "python_version >= '3.8'",
             "version": "==5.0.1"
         },
@@ -862,6 +864,7 @@
                 "sha256:fb30f9626572a76dfe4293c7194a09fb1fe93ba94c7d4f720dfae3b646b45027",
                 "sha256:fe3c58d2f5db5fbd18c2987cba06d51b0529f52bc3a6cdc33d3f4eab725104bd"
             ],
+            "index": "pypi",
             "markers": "python_version >= '3.9'",
             "version": "==1.8.0"
         },
@@ -1534,6 +1537,7 @@
                 "sha256:f9a1e9b622ca284143aab5d885848686dcd85453bb1ca9abcdb7503e64dc0056",
                 "sha256:fecd17873a096036c1c87ab3486f1aef7f269ada7f23f7f856f93b1cc7744f14"
             ],
+            "index": "pypi",
             "markers": "python_version >= '3.10'",
             "version": "==1.24.2"
         },
@@ -2028,11 +2032,12 @@
         },
         "click": {
             "hashes": [
-                "sha256:482be17c6991b8c19c5429a1e995d9b0efdbb63172824c41f99965dc0ade8ec2",
-                "sha256:918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
+                "sha256:9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6",
+                "sha256:e6f9f66136c816745b9d65817da91d61d957fb16e02e4dcd0552553c5a197b76"
             ],
+            "index": "pypi",
             "markers": "python_version >= '3.10'",
-            "version": "==8.4.1"
+            "version": "==8.4.2"
         },
         "decorator": {
             "hashes": [
@@ -2473,12 +2478,12 @@
         },
         "mistune": {
             "hashes": [
-                "sha256:61c4ca5f8c1e0f4622e85bdec00ebf93942a742123bb26440a737bac0edce5c6",
-                "sha256:7d2108b532850ab81d3e92a5566abe1168f4f27c0c9dbe914e02d1d06e2a0288"
+                "sha256:a678a56387d487db7368ede4647cb2ba1deff22ce61f92343e4ebe0ddfce4f2d",
+                "sha256:e12ee4f1e74336e91aa1141e35f913b337c40bdf7c0cc49f21fb853a27e8b62f"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.8'",
-            "version": "==3.3.1"
+            "version": "==3.3.2"
         },
         "multidict": {
             "hashes": [
